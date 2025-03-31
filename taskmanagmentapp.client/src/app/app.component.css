@@ -1,0 +1,106 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header */
+.tma-name {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Divider Between Header and Columns */
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
+
+/* Column Layout */
+.user-selector-column {
+  width: 20%;
+  padding: 0 20px;
+  border-right: 1px solid #e0e0e0; /* Divider between columns */
+}
+
+.task-column {
+  width: 40%;
+  padding: 0 20px;
+}
+
+  .task-column h3 {
+    text-align: center;
+  }
+
+  /* Divider between task columns */
+  .task-column + .task-column {
+    border-left: 1px solid #e0e0e0; /* Divider between the task columns */
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .user-selector-column,
+  .task-column {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Remove dividers on mobile view */
+  .user-selector-column,
+  .task-column {
+    border: none;
+  }
+}
+
+/*loading*/
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fff;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

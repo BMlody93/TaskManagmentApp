@@ -1,0 +1,13 @@
+<svg width="120" height="20" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Rounded Square -->
+  <rect x="20" y="20" width="160" height="160" rx="20" fill="#4CAF50"/>
+  
+  <!-- Document Icon -->
+  <rect x="50" y="40" width="100" height="120" rx="10" fill="white"/>
+  
+  <!-- Checkmark -->
+  <polyline points="70,100 90,120 130,80" stroke="#4CAF50" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- TMA Text -->
+  <text x="200" y="120" font-family="Arial, sans-serif" font-size="90" fill="#4CAF50" font-weight="bold">TMA</text>
+</svg>

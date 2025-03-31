@@ -1,0 +1,11 @@
+<!-- Dropdown to select user -->
+<select [(ngModel)]="selectedUser" (change)="onUserChange()">
+  <option *ngFor="let user of users" [ngValue]="user">{{ user.username }}</option>
+</select>
+
+<!-- Display selected user info -->
+<div class="user-info" *ngIf="selectedUser">
+  <p><strong>Selected User Info:</strong></p>
+  <p>Username: {{ selectedUser.username }}</p>
+  <p>User Type: {{ selectedUser.userType | userType }}</p>
+</div>

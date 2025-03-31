@@ -1,0 +1,37 @@
+
+<header class="tma-name">
+  <img class="logo" src="logo-tma.svg" alt="logo" aria-hidden="true" />
+</header>
+
+<!-- Divider Between Header and Columns -->
+<div class="divider"></div>
+
+<div *ngIf="loadingService.loading$ | async" class="loading-overlay">
+  <div class="spinner"></div>
+</div>
+
+<div class="container">
+  <div class="user-selector-column">
+    <h3>Select User</h3>
+    <app-user-selector [users]="users" (userSelected)="onUserSelected($event)"></app-user-selector>
+    <h3>Save assigned tasks:</h3>
+    <button (click)="onAssignTasks()" [disabled]="isSaveDisabled">Save</button>
+  </div>
+
+  <!-- Assigned Tasks -->
+  <div class="task-column">
+    <h3>Assigned Tasks</h3>
+    <app-task-list [tasks]="tasksAssigned"
+                   [isModifiable]="false"
+                   (pageChanged)="onAssignedPageChange($event)"></app-task-list>
+  </div>
+
+  <!-- Unassigned Tasks -->
+  <div class="task-column">
+    <h3>Unassigned Tasks</h3>
+    <app-task-list [tasks]="tasksUnassigned"
+                   [isModifiable]="true"
+                   (pageChanged)="onUnassignedPageChange($event)"></app-task-list>
+  </div>
+</div>
+

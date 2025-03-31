@@ -1,0 +1,18 @@
+<div class="task-list">
+  <div *ngFor="let task of tasks?.items">
+    <app-task-item [task]="task" [isModifiable]="isModifiable"></app-task-item>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    <button (click)="onPageChange(pageNumber - 1)" [disabled]="pageNumber === 1">
+      Previous
+    </button>
+
+    <span>Page {{ pageNumber }} of {{ totalPages }}</span>
+
+    <button (click)="onPageChange(pageNumber + 1)" [disabled]="pageNumber === totalPages">
+      Next
+    </button>
+  </div>
+</div>

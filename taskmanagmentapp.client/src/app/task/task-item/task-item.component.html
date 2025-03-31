@@ -1,0 +1,30 @@
+<div class="task-item" [class.assigned]="isAssigned">
+  <div class="task-header" (click)="toggleDetails()">
+    <input type="checkbox" [disabled]="!isModifiable" [checked]="isAssigned" (change)="toggleAssigment()" (click)="$event.stopPropagation()" />
+    <span>{{ task?.title }} - Difficulty {{task?.difficulty}}</span>
+
+    <!-- Arrow icon -->
+    <span class="arrow" [ngClass]="{'rotate': showDetails}">&#9660;</span>
+  </div>
+
+  <!-- Accordion content -->
+  <div *ngIf="showDetails" class="task-details" [class.assigned]="isAssigned">
+    <p><strong>Description:</strong> {{ task?.text }}</p>
+    <p><strong>Difficulty:</strong> {{ task?.difficulty }}</p>
+    <p><strong>Task type:</strong> {{ task?.taskType | taskType }}</p>
+    <div *ngIf="task?.taskType == taskTypeEnum.Deployment">
+      <p><strong>Deadline:</strong> {{ task?.details!["Deadline"] | date }}</p>
+      <p><strong>Implementation scope:</strong> {{ task?.details!["Text"]! }}</p>
+      <p><strong>Status:</strong> {{ task?.details!["Status"] | status }}</p>
+    </div>
+    <div *ngIf="task?.taskType == taskTypeEnum.Maintenance">
+      <p><strong>Deadline:</strong> {{ task?.details!["Deadline"] | date }}</p>
+      <p><strong>Server list:</strong> {{ task?.details!["Text"] }}</p>
+      <p><strong>Status:</strong> {{ task?.details!["Status"] | status }}</p>
+    </div>
+    <div *ngIf="task?.taskType == taskTypeEnum.Implementation">
+      <p><strong>Task content:</strong> {{ task?.details!["Text"] }}</p>
+      <p><strong>Status:</strong> {{ task?.details!["Status"] | status }}</p>
+    </div>
+  </div>
+</div>
