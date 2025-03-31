@@ -24,7 +24,10 @@ export class TaskListComponent {
   //Updates pageNumber when tasks have changed
   ngOnChanges(changes: SimpleChanges) {
     if (changes['tasks'] && this.tasks) {
-      this.pageNumber = this.tasks.pageIndex + 1; 
+      this.pageNumber = this.tasks.pageIndex + 1;
+    }
+    else {
+      this.pageNumber = 1;
     }
   }
 
